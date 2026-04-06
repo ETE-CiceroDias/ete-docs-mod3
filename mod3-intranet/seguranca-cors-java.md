@@ -19,6 +19,7 @@ A melhor prática é **centralizar a configuração de CORS**, aplicando-a globa
 
 Essa abordagem aplica as regras de CORS para toda a aplicação:
 
+```
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.*;
@@ -42,10 +43,13 @@ public class CorsConfig {
         return new CorsFilter(source);
     }
 }
+```
+
 ## Opção 2: Configuração com `WebMvcConfigurer`
 
 Outra forma organizada de configurar CORS globalmente:
 
+```
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.*;
 
@@ -60,14 +64,19 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedHeaders("*");
     }
 }
+```
+
 ## Opção 3: Configuração por Endpoint
 
 Caso seja necessário aplicar regras específicas para determinados endpoints, é possível usar a anotação `@CrossOrigin`:
 
+```
 @CrossOrigin(origins = "*")
 @RestController
 public class MeuController {
 }
+```
+
 **Observação:** Essa abordagem não é recomendada como padrão, pois exige repetição em múltiplas classes.
 
 ## Boas Práticas
