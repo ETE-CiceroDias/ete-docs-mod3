@@ -1,0 +1,234 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+%  Devolutiva Final — Projeto Final (Módulo 3)
+%  Grupo: SAF — Intranet S.A.F
+%  Profa. Samara Silva · ETE Cícero Dias · Recife
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\documentclass[
+  sigconf,
+  nonacm,
+  language=portuguese
+]{acmart}
+
+% ── Desliga rodapé ACM ──────────────────────────────────────
+\settopmatter{printacmref=false}
+\setcopyright{none}
+\acmYear{2026}
+\let\balance\relax
+
+% ── Mata a página temporária da ACM (compilação única via API) ──
+\makeatletter
+\def\acm@addtemp@page{}
+\makeatother
+
+% ── Pacotes ─────────────────────────────────────────────────
+\usepackage[portuguese]{babel}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage[inline]{enumitem}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{fancyhdr}
+\usepackage{eso-pic}
+
+% ── Ajuste contra quebras de texto ruins ────────────────────
+\tolerance=1000
+\emergencystretch=1.5em
+
+% ── Cores ───────────────────────────────────────────────────
+\definecolor{cgood}{HTML}{1E6B3A}
+\definecolor{cwarn}{HTML}{8B4500}
+\definecolor{cred}{HTML}{C0392B}
+\definecolor{cmuted}{HTML}{666666}
+\definecolor{crow}{HTML}{F2EFEB}
+
+% ── Colunas customizadas ────────────────────────────────────
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% ── Comandos ─────────────────────────────────────────────────
+\newcommand{\notadestaque}[2]{%
+  \noindent\textbf{Nota:}\enspace%
+  {\large\bfseries\color{cred}#1\,/\,#2\,pts}%
+}
+\newcommand{\statusok}[1]{{\small\bfseries\color{cgood}#1}}
+\newcommand{\statuswarn}[1]{{\small\bfseries\color{cwarn}#1}}
+\newcommand{\gmax}[1]{{\color{cgood}\textbf{#1}}}
+\newcommand{\gcut}[1]{{\color{cwarn}\textbf{#1}}}
+
+% ── Renomeações PT-BR ────────────────────────────────────────
+\AtBeginDocument{%
+  \renewcommand{\abstractname}{Resumo}
+  \renewcommand{\figurename}{Figura}
+  \renewcommand{\tablename}{Tabela}
+}
+
+% ────────────────────────────────────────────────────────────
+\begin{document}
+
+% ── CAPA ────────────────────────────────────────────────────
+\thispagestyle{empty}
+\AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \IfFileExists{capa-saf.png}{%
+      \includegraphics[width=\paperwidth,height=\paperheight]{capa-saf.png}%
+    }{%
+      \IfFileExists{../../capa-saf.png}{%
+        \includegraphics[width=\paperwidth,height=\paperheight]{../../capa-saf.png}%
+      }{%
+        \parbox[b][\paperheight]{\paperwidth}{%
+          \vspace*{10cm}\begin{center}{\large\color{gray}[capa-saf.png não encontrada]}\end{center}%
+        }%
+      }%
+    }%
+  }%
+}
+\mbox{}
+\clearpage
+
+% ── CONFIGURAÇÃO DE PÁGINA PÓS-CAPA ─────────────────────────
+\setcounter{page}{1}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\thepage}
+\setlength{\headsep}{0.8cm}
+
+% ── METADADOS ────────────────────────────────────────────────
+\title{Feedback Avaliativo de Projeto: Projeto Final --- Intranet S.A.F}
+
+\author{Profa.\ Samara Silva}
+\authornote{Grupo: \textbf{SAF --- Intranet S.A.F} \textperiodcentered\ M\'{o}dulo 3 --- Projeto Final \textperiodcentered\ Avaliado em: 18 de junho de 2026.}
+\email{samarasilvia.educa@gmail.com}
+\affiliation{%
+  \institution{ETE C\'{i}cero Dias}
+  \department{M\'{o}dulo 3 --- Programa\c{c}\~{a}o em Novas Tecnologias · 2026.1}
+  \city{Recife}
+  \state{Pernambuco}
+  \country{Brasil}
+}
+
+\author{SAF --- Intranet S.A.F}
+\affiliation{%
+  \institution{ETE C\'{i}cero Dias}
+  \department{Emanoel · Guilherme · Vinícius · Davi}
+  \city{Recife}
+  \state{Pernambuco}
+  \country{Brasil}
+}
+\maketitle
+
+\vspace{1em}
+\section{Avaliação Geral}
+
+A avaliação do Projeto Final foi concluída. A seguir, o resumo dos critérios, os comentários detalhados e a grade completa da apresentação.
+
+\subsection{Resumo dos Critérios}
+
+{\small
+\rowcolors{2}{crow}{white}
+\begin{tabularx}{\linewidth}{@{} >{\raggedright\arraybackslash}X c c c @{}}
+\toprule
+\textbf{Critério} & \textbf{Status} & \textbf{Nota} & \textbf{Máx.} \\
+\midrule
+AT1 --- Desempenho em sala & \statusok{Completo} & \textbf{3,0} & 3,0 \\
+AT2 --- Documentação & \statusok{Completo} & \textbf{3,0} & 3,0 \\
+AT3 --- Apresentação & \statuswarn{Com ressalvas} & \textbf{3,5} & 4,0 \\
+\midrule
+\textbf{1ª Nota (AT1+AT2+AT3)} & & \textbf{\color{cred}9,5} & \textbf{10,0} \\
+2ª Nota --- Projeto Final & \statusok{Completo} & \textbf{10,0} & 10,0 \\
+\bottomrule
+\end{tabularx}}
+
+\section{Comentários por Critério}
+
+\subsection{Desempenho em sala}
+\noindent\statusok{3,00\,/\,3,00 pts · Completo}
+
+A equipe manteve presença, engajamento e participação consistentes durante todo o acompanhamento do projeto, sempre ativa nas dúvidas e na execução. Excelente postura coletiva.
+
+\subsection{Documentação}
+\noindent\statusok{3,00\,/\,3,00 pts · Completo}
+
+Documentação completa e em conformidade com o esperado. Sem ressalvas.
+
+\subsection{Apresentação}
+\noindent\statuswarn{3,50\,/\,4,00 pts · Com ressalvas}
+
+Em relação ao projeto da intranet da SAF, eu adorei a apresentação que foi realizada --- teve uma dinâmica maravilhosa, ótimo discurso, engajamento, atraiu a atenção das pessoas. Embora não tenha dado tempo de finalizar, foi compreendido o intuito e o projeto em si. Infelizmente não pude pontuar a apresentação com 100\%, porque o Davi, quando foi apresentar as funcionalidades do sistema, não conseguiu. Além da demora em ir apresentar, apenas leu o slide e não apresentou didática alguma, como se não soubesse o que o sistema fazia. E como eu pontuo a apresentação por grupo, assim como todos os outros critérios, eu pesei e, levando em consideração o início da apresentação, tirei apenas 0,5 décimos. De qualquer forma, todos tiraram 10.
+
+\par\medskip\noindent\textbf{Grade da Apresentação}\par\smallskip
+
+{\small
+\rowcolors{2}{crow}{white}
+\begin{tabularx}{\linewidth}{@{} >{\raggedright\arraybackslash}X c c @{}}
+\toprule
+\textbf{Critério avaliado} & \textbf{Peso} & \textbf{Nota} \\
+\midrule
+Motivação & 0,15 & \gmax{0,15} \\
+Desenvoltura no discurso & 0,40 & \gmax{0,40} \\
+Postura & 0,25 & \gmax{0,25} \\
+Funcionalidades & 0,40 & \gcut{0,20} \\
+Design Centrado no Usuário & 0,40 & \gmax{0,40} \\
+Escopo do Projeto & 0,25 & \gmax{0,25} \\
+Tecnologia e Infraestrutura & 0,25 & \gmax{0,25} \\
+Casos de Uso com a solução & 0,25 & \gmax{0,25} \\
+Roadmap & 0,15 & \gmax{0,15} \\
+Usabilidade & 0,40 & \gmax{0,40} \\
+Responsividade & 0,15 & \gmax{0,15} \\
+Fluxo das Tasks & 0,25 & \gmax{0,25} \\
+Domínio no tema & 0,40 & \gcut{0,20} \\
+Inovação/Diferencial Competitivo & 0,15 & \gmax{0,15} \\
+Deu tempo de falar tudo & 0,15 & \gcut{0,05} \\
+\midrule
+\textbf{Total} & \textbf{4,00} & \textbf{\color{cred}3,50} \\
+\bottomrule
+\end{tabularx}}
+
+\vspace{2pt}
+\noindent{\footnotesize\itshape Tempo de apresentação: 5 min + 3 min (prorrogado).}\par
+\noindent{\footnotesize Pesos por critério --- Alto: 0,40 · Médio: 0,25 · Baixo: 0,15 (somam 4,00).}
+
+\subsection{Projeto Final}
+\noindent\statusok{10,00\,/\,10,00 pts · Completo}
+
+Entrega excelente.
+
+\section{Considerações Finais}
+
+Parabéns pela maturidade do grupo e pela apresentação envolvente. Fica a recomendação de alinhar previamente quem demonstra cada parte do sistema, garantindo domínio na hora de mostrar as funcionalidades. Continuem assim!
+
+% ── Assinatura ───────────────────────────────────────────────
+\vspace{1.5em}
+\noindent\rule{\linewidth}{0.4pt}
+
+\begin{flushright}
+\textbf{Profa.\ Samara Silva}\\
+{\small\color{cmuted} Programação em Novas Tecnologias --- Módulo 3 · ETE Cícero Dias}\\
+{\small\color{cmuted} Recife, 18 de junho de 2026}
+\end{flushright}
+
+% ── Notas por integrante ─────────────────────────────────────
+\appendix
+\onecolumn
+\section{Notas por Integrante}
+
+A média final consolida o desempenho em sala, a documentação, a apresentação e o projeto final.
+
+\vspace{0.5em}
+\begin{tabularx}{\linewidth}{@{} X p{3cm} p{2.5cm} @{}}
+\toprule
+\textbf{Integrante} & \textbf{Observação} & \textbf{Média Final} \\
+\midrule
+Emanoel & --- & \textbf{10,0} \\
+Guilherme & --- & \textbf{10,0} \\
+Vinícius & --- & \textbf{10,0} \\
+Davi & --- & \textbf{10,0} \\
+\bottomrule
+\end{tabularx}
+
+\end{document}
